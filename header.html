@@ -1,0 +1,269 @@
+<style>
+    /* ================= HEADER STYLES (Deep Forest Theme) ================= */
+    :root {
+        --header-bg-color: #143625; /* สีเขียวเข้มเดียวกับ Sidebar */
+        --header-text-color: #ffffff;
+        --accent-color: #aed581; /* สีเขียวอ่อนสำหรับจุดเด่น */
+        --header-height: 80px;
+        --shadow-soft: 0 5px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    /* 1. Logo Area (ซ้ายบน) */
+    .nav-header {
+        background: var(--header-bg-color) !important;
+        width: 16rem;
+        height: var(--header-height);
+        display: flex;
+        align-items: center;
+        justify-content: center; /* จัดกึ่งกลาง */
+        box-shadow: 4px 0 10px rgba(0,0,0,0.2);
+        z-index: 10;
+        transition: all 0.3s ease;
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+
+    .brand-logo {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        padding: 0 20px;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .logo-abbr {
+        max-width: 45px; /* ขยายโลโก้ขึ้นนิดนึง */
+        flex-shrink: 0;
+    }
+    
+    .brand-title {
+        margin-left: 15px;
+        font-size: 1.1rem !important; /* เพิ่มขนาดตัวอักษรให้อ่านง่าย */
+        color: var(--header-text-color);
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        display: block; 
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-height: 1.2;
+    }
+
+    /* 2. Main Header Bar (แถบบนสีขาว) */
+    .header {
+        height: var(--header-height);
+        background: #ffffff;
+        box-shadow: var(--shadow-soft);
+        z-index: 9;
+        padding-left: 16rem;
+        transition: all 0.3s ease;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%;
+    }
+
+    .header-content {
+        height: 100%;
+        padding: 0 30px;
+    }
+
+    .navbar {
+        padding: 0;
+        height: 100%;
+    }
+
+    /* 3. Hamburger Menu (ปุ่ม 3 ขีด) */
+    .nav-control {
+        cursor: pointer;
+        position: absolute;
+        right: -60px; /* ขยับออกมาให้กดง่ายขึ้น */
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 99;
+    }
+
+    .hamburger {
+        padding: 10px;
+        display: inline-block;
+        cursor: pointer;
+        background-color: transparent;
+        border: 0;
+        margin: 0;
+    }
+
+    .hamburger .line {
+        width: 28px; /* เส้นยาวขึ้น */
+        height: 3px; /* เส้นหนาขึ้น */
+        background-color: #143625; /* เปลี่ยนเป็นสีเขียวเข้ม เพื่อให้เห็นชัดบนพื้นขาว */
+        display: block;
+        margin: 6px auto;
+        border-radius: 3px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .hamburger:hover .line {
+        background-color: #27ae60; /* ชี้แล้วเปลี่ยนเป็นเขียวสว่าง */
+    }
+
+    /* 4. Profile Section */
+    .header-profile {
+        display: flex;
+        align-items: center;
+    }
+
+    .header-profile .nav-link {
+        padding: 0 15px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+    
+    .user-name-text {
+        font-size: 1rem;
+        color: #333;
+        font-weight: 600;
+    }
+
+    .profile-icon-wrapper {
+        width: 48px;
+        height: 48px;
+        background-color: #f1f8e9; /* พื้นหลังเขียวอ่อนจางๆ */
+        border-radius: 50%; /* วงกลม */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        border: 1px solid #e0e0e0;
+    }
+
+    .profile-icon-wrapper i {
+        font-size: 1.4rem;
+        color: #143625; /* ไอคอนสีเขียวเข้ม คุมโทน */
+    }
+
+    /* Hover Profile */
+    .header-profile:hover .profile-icon-wrapper {
+        background-color: #143625; /* เปลี่ยนพื้นหลังเป็นเขียวเข้ม */
+        border-color: #143625;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        transform: translateY(-2px);
+    }
+
+    .header-profile:hover .profile-icon-wrapper i {
+        color: #ffffff; /* ไอคอนเปลี่ยนเป็นขาว */
+    }
+
+    /* Dropdown Styling */
+    .dropdown-menu {
+        border: none;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        padding: 10px 0;
+        margin-top: 10px;
+    }
+    .dropdown-item {
+        padding: 10px 20px;
+        font-size: 0.95rem;
+        color: #555;
+    }
+    .dropdown-item:hover {
+        background-color: #f1f8e9;
+        color: #143625;
+    }
+    .dropdown-item i {
+        width: 20px;
+        text-align: center;
+    }
+
+    /* ================= RESPONSIVE ================= */
+    @media (max-width: 768px) {
+        .nav-header {
+            width: 5rem;
+            padding: 0;
+        }
+        
+        .brand-title {
+            display: none;
+        }
+
+        .brand-logo {
+            justify-content: center;
+            padding: 0;
+        }
+        
+        .logo-abbr {
+            max-width: 40px;
+        }
+
+        .header {
+            padding-left: 5rem;
+        }
+
+        .nav-control {
+            right: auto;
+            left: 5.5rem;
+        }
+        
+        /* ซ่อนชื่อผู้ใช้ในมือถือ เหลือแค่รูป */
+        .user-name-text {
+            display: none !important;
+        }
+    }
+</style>
+
+<div class="nav-header">
+    <a href="index.php" class="brand-logo">
+        <img class="logo-abbr" src="./images/test03.png" alt="Logo">
+        <span class="brand-title">สมุดบันทึก</span> 
+    </a>
+
+    <div class="nav-control">
+        <div class="hamburger">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+        </div>
+    </div>
+</div>
+
+<div class="header">
+    <div class="header-content">
+        <nav class="navbar navbar-expand">
+            <div class="collapse navbar-collapse justify-content-between">
+                
+                <div class="header-left">
+                    </div>
+
+                <ul class="navbar-nav header-right">
+                    <li class="nav-item dropdown header-profile">
+                        <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                            <span class="user-name-text mr-3">
+                                สวัสดี, <?php echo isset($_SESSION['username']) ? htmlspecialchars($_SESSION['username']) : 'ผู้ใช้งาน'; ?>
+                            </span>
+                            
+                            <div class="profile-icon-wrapper">
+                                <i class="fa fa-user"></i>
+                            </div>
+                        </a>
+                        
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a href="./app-profile.php" class="dropdown-item">
+                                <i class="fa fa-address-card text-success"></i>
+                                <span class="ml-2">ข้อมูลส่วนตัว</span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="./logout.php" class="dropdown-item">
+                                <i class="fa fa-sign-out-alt text-danger"></i>
+                                <span class="ml-2">ออกจากระบบ</span>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>

@@ -1,0 +1,136 @@
+<style>
+    /* 1. แก้บั๊กที่ทำให้ Fixed ไม่ทำงาน (สำคัญมาก) */
+    #main-wrapper {
+        transform: none !important;
+        overflow: visible !important;
+    }
+
+    /* 2. ส่วนหัวโลโก้ (กล่องเขียวบนซ้าย) ให้ติดหน้าจอเสมอ */
+    .nav-header {
+        position: fixed !important;
+        top: 0;
+        left: 0;
+        z-index: 1000; /* อยู่ชั้นบนสุด */
+        width: 16rem; /* หรือประมาณ 256px ตามธีม */
+        /* ใส่สีเขียวเดิมของคุณ */
+        background: rgba(20, 54, 37, 0.85) !important;
+    }
+
+    /* 3. ส่วนเมนู Sidebar ให้ติดหน้าจอต่อจากส่วนหัว */
+    .quixnav {
+        position: fixed !important;
+        top: 4.5rem; /* เว้นที่ว่างด้านบนให้พอดีกับความสูงของส่วนหัวโลโก้ (ปรับตัวเลขได้) */
+        left: 0;
+        bottom: 0; /* ยืดลงไปสุดขอบล่าง */
+        height: auto !important; /* ปล่อยให้ความสูง auto เพราะเราสั่ง bottom: 0 แล้ว */
+        width: 16rem; /* ต้องเท่ากับ .nav-header */
+        z-index: 999;
+        overflow-y: auto; /* ให้ scroll ในเมนูได้ถ้าเมนูยาว */
+        
+        /* สีเขียวเดิมของคุณ */
+        background: rgba(20, 54, 37, 0.85) !important;
+        backdrop-filter: none;
+    }
+
+    /* 4. ปรับเนื้อหาขวาให้ไม่มุดใต้เมนู */
+    .content-body {
+        margin-left: 16rem !important; /* ดันเนื้อหาไปขวา */
+        padding-top: 5rem; /* ดันเนื้อหาลงมาหน่อยไม่ให้โดน Header บัง */
+    }
+
+    /* --- การแสดงผลในมือถือ (หน้าจอเล็กกว่า 768px) --- */
+    @media (max-width: 768px) {
+        .nav-header {
+            width: 5rem; /* หดส่วนหัวให้เล็กเหลือแค่ไอคอน */
+        }
+        .quixnav {
+            left: -16rem; /* ซ่อนเมนูไปทางซ้ายก่อน */
+            width: 16rem;
+            transition: left 0.3s;
+        }
+        /* ถ้ามีการกดเปิดเมนู (class show-menu หรือ similar) ต้องเขียนเพิ่ม */
+        
+        .content-body {
+            margin-left: 0 !important; /* เนื้อหากลับมาเต็มจอ */
+            padding-top: 5rem;
+        }
+    }
+</style>
+
+<div class="quixnav">
+    <div class="quixnav-scroll">
+        <ul class="metismenu" id="menu">
+            
+            <li class="nav-label first">เมนูหลัก</li>
+            
+            <li>
+                <a href="dashboard1.php" aria-expanded="false">
+                    <i class="fas fa-home"></i>
+                    <span class="nav-text">หน้าหลัก (Dashboard)</span>
+                </a>
+            </li>
+
+            <?php if(isset($_SESSION['role']) && $_SESSION['role'] == 'admin'): ?>
+            <li>
+                <a href="admin-user.php" aria-expanded="false">
+                    <i class="fas fa-users-cog"></i>
+                    <span class="nav-text">จัดการผู้ใช้งาน</span>
+                </a>
+            </li>
+            <?php endif; ?>
+
+            <li>
+                <a href="app-calender.php" aria-expanded="false">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span class="nav-text">ปฏิทินกิจกรรม</span>
+                </a>
+            </li>
+
+            <li>
+                <?php if(isset($_SESSION['role']) && $_SESSION['role'] == 'admin'): ?>
+                    <a href="savedata.php" aria-expanded="false">
+                        <i class="fas fa-database"></i>
+                        <span class="nav-text">จัดการข้อมูลพื้นฐาน</span>
+                    </a>
+                <?php else: ?>
+                    <a href="save-data1.php" aria-expanded="false">
+                        <i class="fas fa-edit"></i>
+                        <span class="nav-text">บันทึกการเพาะปลูก</span>
+                    </a>
+                <?php endif; ?>
+            </li>
+
+            <li>
+                <a href="production_list1.php" aria-expanded="false">
+                    <i class="fas fa-seedling"></i>
+                    <span class="nav-text">รายการผลผลิต</span>
+                </a>
+            </li>
+
+            <li class="nav-label">บัญชีผู้ใช้</li>
+
+            <li class="logout-item">
+                <a href="logout.php" aria-expanded="false">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span class="nav-text">ออกจากระบบ</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var currentUrl = window.location.pathname.split("/").pop();
+        var menuItems = document.querySelectorAll("#menu li a");
+        
+        menuItems.forEach(function(item) {
+            var href = item.getAttribute("href");
+            if (href === currentUrl || (currentUrl === '' && href === 'index1.php')) {
+                item.parentElement.classList.add("mm-active");
+                item.classList.add("mm-active");
+            }
+        });
+    });
+</script>

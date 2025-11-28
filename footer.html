@@ -1,0 +1,74 @@
+<style>
+    /* ================= FOOTER STYLES (Deep Forest Theme) ================= */
+    .footer {
+        /* ใช้สีเขียวเข้มเดียวกับ Sidebar เพื่อความต่อเนื่องของธีม */
+        background-color: #143625 !important; 
+        padding: 20px 0;
+        
+        /* เส้นขอบบนสีเขียวอ่อน ช่วยแบ่งสัดส่วนจากเนื้อหาหลัก */
+        border-top: 1px solid rgba(174, 213, 129, 0.3); 
+        
+        color: #ffffff; /* ตัวหนังสือสีขาว อ่านง่าย */
+        font-family: 'Prompt', sans-serif;
+        font-size: 0.95rem; /* ปรับขนาดให้อ่านสบายตาขึ้นอีกนิด */
+    }
+
+    .copyright {
+        text-align: center;
+        padding: 0 15px;
+    }
+
+    .copyright p {
+        margin: 0;
+        line-height: 1.6;
+        opacity: 0.9; /* ลดความจ้าของสีขาวลงนิดหน่อย ให้ดูนุ่มนวล */
+    }
+
+    /* ตกแต่งชื่อหมู่บ้านให้เด่น */
+    .village-name {
+        color: #aed581; /* สีเขียวอ่อน (Accent Color) */
+        font-weight: 600;
+        font-size: 1rem;
+    }
+
+    /* เส้นคั่นแนวตั้ง */
+    .divider-vertical {
+        color: rgba(255,255,255,0.3);
+        margin: 0 10px;
+    }
+
+    /* ================= RESPONSIVE ================= */
+    @media (max-width: 768px) {
+        .footer {
+            padding: 15px 0;
+            font-size: 0.85rem;
+            /* ในมือถือ ถ้า Footer ทับเนื้อหา ให้เพิ่ม Margin หรือ Padding ตรงนี้ช่วยได้ครับ */
+        }
+        
+        .copyright p span {
+            display: block; /* ในมือถือให้ขึ้นบรรทัดใหม่ */
+            margin-top: 4px;
+        }
+
+        /* ซ่อนเส้นคั่นในมือถือเพราะขึ้นบรรทัดใหม่แล้ว */
+        .divider-vertical {
+            display: none;
+        }
+        
+        /* เพิ่มระยะห่างด้านล่างเนื้อหา เพื่อไม่ให้ Footer บังข้อมูลสุดท้าย */
+        .content-body {
+            margin-bottom: 80px; 
+        }
+    }
+</style>
+
+<div class="footer">
+    <div class="copyright">
+        <p>
+            &copy; 2568 
+            <span class="village-name">สมุดบันทึกหมู่บ้านแม่ต่ำต้นโพธิ์</span> 
+            
+            <br class="d-block d-md-none"> <span class="d-none d-md-inline divider-vertical">|</span> <span style="font-weight: 300;">ตำบลแม่ต๋ำ อำเภอพญาเม็งราย จังหวัดเชียงราย</span>
+        </p>
+    </div>
+</div>

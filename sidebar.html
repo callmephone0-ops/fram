@@ -1,0 +1,187 @@
+<style>
+    /* ================= SIDEBAR STYLING (Deep Forest Theme) ================= */
+    .quixnav {
+        /* สีเขียวเข้มจัด ให้ความรู้สึกมั่นคง จริงจัง และเป็นมืออาชีพ */
+        background: #143625 !important;
+        box-shadow: 4px 0 20px rgba(0,0,0,0.2); /* เพิ่มเงาให้ดูลึกขึ้น */
+    }
+
+    .quixnav-scroll {
+        height: 100%;
+        overflow-y: auto;
+    }
+    /* Scrollbar ปรับสีให้เข้ากับธีมเข้ม */
+    .quixnav-scroll::-webkit-scrollbar { width: 6px; }
+    .quixnav-scroll::-webkit-scrollbar-thumb {
+        background: rgba(174, 213, 129, 0.3); /* สีเขียวอ่อนแบบโปร่งแสง */
+        border-radius: 10px;
+    }
+    .quixnav-scroll::-webkit-scrollbar-track {
+        background: rgba(0,0,0,0.1);
+    }
+
+    /* ================= MENU ITEMS ================= */
+    .metismenu {
+        padding: 20px 10px;
+    }
+
+    .nav-label {
+        /* สีเขียวตองอ่อน สว่างๆ เพื่อให้ตัดกับพื้นหลังเข้มจัด */
+        color: #aed581; 
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        padding: 15px 15px 5px 15px;
+        margin-bottom: 5px;
+    }
+
+    .metismenu li {
+        margin-bottom: 8px;
+    }
+
+    .metismenu li a {
+        display: flex;
+        align-items: center;
+        padding: 14px 15px;
+        /* ตัวหนังสือสีขาวบริสุทธิ์ อ่านง่ายที่สุดบนพื้นเข้ม */
+        color: #ffffff !important; 
+        font-size: 1.05rem; /* ขนาดใหญ่ อ่านง่าย */
+        font-weight: 400;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: all 0.2s ease;
+    }
+
+    /* ไอคอนเมนูปกติ */
+    .metismenu li a i {
+        font-size: 1.35rem;
+        width: 35px;
+        text-align: center;
+        margin-right: 12px;
+        /* ใช้สีเดียวกับ Label เพื่อคุมโทนเขียว */
+        color: #aed581; 
+        transition: all 0.3s;
+        opacity: 0.8; /* ลดความแรงลงนิดหน่อยให้ตัวหนังสือเด่นกว่า */
+    }
+
+    /* Hover Effect (ตอนชี้เมาส์) */
+    .metismenu li a:hover {
+        /* ใช้สีดำโปร่งแสงมาทับ ทำให้พื้นหลังดูเข้มขึ้นไปอีก */
+        background-color: rgba(0,0,0,0.2); 
+        padding-left: 20px;
+    }
+    .metismenu li a:hover i {
+        color: #fff; /* ไอคอนสว่างขึ้นตอนชี้ */
+        opacity: 1;
+    }
+
+    /* Active State (หน้าปัจจุบัน - เน้นสุดๆ) */
+    .metismenu li.mm-active > a {
+        background-color: #ffffff; /* พื้นหลังขาว */
+        /* ตัวหนังสือกลับไปเป็นสีเขียวเข้มจัด */
+        color: #143625 !important; 
+        font-weight: 700;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    .metismenu li.mm-active > a i {
+        /* ไอคอนก็เป็นสีเขียวเข้มจัด */
+        color: #143625; 
+        opacity: 1;
+    }
+
+    /* ปุ่มออกจากระบบ */
+    .logout-item {
+        margin-top: 30px;
+        border-top: 1px solid rgba(174, 213, 129, 0.2); /* เส้นคั่นสีเขียวอ่อนจางๆ */
+        padding-top: 15px;
+    }
+    .logout-item a:hover {
+        background-color: #b71c1c !important; /* สีแดงเข้ม ดูดุขึ้น */
+        color: #fff !important;
+    }
+    .logout-item a:hover i {
+        color: #fff !important;
+    }
+
+    /* ================= RESPONSIVE ================= */
+    @media (max-width: 768px) {
+        .quixnav {
+            width: 260px;
+            z-index: 999;
+        }
+    }
+</style>
+
+<div class="quixnav">
+    <div class="quixnav-scroll">
+        <ul class="metismenu" id="menu">
+            
+            <li class="nav-label first">เมนูหลัก</li>
+            
+            <li>
+                <a href="dashboard.php" aria-expanded="false">
+                    <i class="fas fa-home"></i>
+                    <span class="nav-text">หน้าหลัก (Dashboard)</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="admin-user.php" aria-expanded="false">
+                    <i class="fas fa-users-cog"></i>
+                    <span class="nav-text">จัดการผู้ใช้งาน</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="app-calender1.php" aria-expanded="false">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span class="nav-text">ปฏิทินกิจกรรม</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="save-data.php" aria-expanded="false">
+                    <i class="fas fa-database"></i>
+                    <span class="nav-text">จัดการข้อมูล</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="production_list.php" aria-expanded="false">
+                    <i class="fas fa-seedling"></i>
+                    <span class="nav-text">รายการผลผลิต</span>
+                </a>
+            </li>
+
+            <li class="nav-label">บัญชีผู้ใช้</li>
+
+            <li class="logout-item">
+                <a href="logout.php" aria-expanded="false">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span class="nav-text">ออกจากระบบ</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // ดึงชื่อไฟล์ปัจจุบัน (เช่น dashboard1.php)
+        var currentUrl = window.location.pathname.split("/").pop();
+        
+        // วนลูปหาลิงก์ที่ตรงกับหน้าปัจจุบัน
+        var menuItems = document.querySelectorAll("#menu li a");
+        
+        menuItems.forEach(function(item) {
+            var href = item.getAttribute("href");
+            // ถ้า href ตรงกับชื่อไฟล์ปัจจุบัน
+            if (href === currentUrl || (currentUrl === '' && href === 'index.php')) {
+                item.parentElement.classList.add("mm-active"); // ใส่ class active ให้ li
+                item.classList.add("mm-active"); // ใส่ class active ให้ a (เผื่อ template ใช้)
+            }
+        });
+    });
+</script>

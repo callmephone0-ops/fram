@@ -1,0 +1,284 @@
+<style>
+    /* ================= HEADER STYLES (Premium Deep Forest Theme) ================= */
+    :root {
+        /* ใช้ Gradient แทนสีทึบ เพื่อความหรูหรา */
+        --header-bg-gradient: linear-gradient(to bottom, #143625, #0d2b1a);
+        --header-text-color: #ffffff;
+        --accent-color: #2ecc71; /* สีเขียวสดใสสำหรับจุดเด่น */
+        --header-height: 80px;
+        --shadow-soft: 0 5px 20px rgba(0, 0, 0, 0.05); /* เงาที่นุ่มขึ้น */
+        --sidebar-width: 17rem; /* ขยายความกว้าง Sidebar อีกนิดให้ชื่อไม่อึดอัด */
+    }
+
+    body {
+        background-color: #f8f9fa; /* สีพื้นหลังเว็บให้อ่อนลงนิดนึงเพื่อให้ Header เด่น */
+    }
+
+    /* 1. Logo Area (ซ้ายบน) - ปรับให้ดูมีมิติ */
+    .nav-header {
+        background: var(--header-bg-gradient) !important; /* ใช้ Gradient */
+        width: var(--sidebar-width);
+        height: var(--header-height);
+        display: flex;
+        align-items: center;
+        padding: 0 20px; /* เพิ่ม Padding ด้านข้าง */
+        box-shadow: 4px 0 15px rgba(0, 0, 0, 0.3); /* เงาเข้มขึ้นเพื่อให้ดูลอย */
+        z-index: 11; /* อยู่ชั้นบนสุด */
+        transition: all 0.3s ease;
+        position: fixed;
+        top: 0;
+        left: 0;
+        border-bottom: 1px solid rgba(255,255,255,0.05); /* เส้นขอบบางๆ */
+    }
+
+    .brand-logo {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .logo-abbr {
+        max-width: 42px; /* ปรับขนาดโลโก้ให้พอดี */
+        flex-shrink: 0;
+        filter: drop-shadow(0 2px 3px rgba(0,0,0,0.3)); /* เพิ่มเงาให้โลโก้ */
+    }
+
+    /* ===== ส่วนที่แก้ไข: ชื่อแบรนด์ให้สวยขึ้น ===== */
+    .brand-title {
+        margin-left: 15px;
+        font-size: 0.85rem !important;
+        color: rgba(255, 255, 255, 0.95); /* สีขาวนวลเล็กน้อย */
+        font-weight: 500; /* ลดความหนาลงนิดนึงให้ดูทันสมัย */
+        letter-spacing: 0.5px;
+        
+        /* การจัดวางข้อความยาวๆ */
+        display: block;
+        white-space: normal;
+        line-height: 1.5; /* เพิ่มระยะห่างบรรทัดให้อ่านง่ายขึ้น */
+        text-align: left;
+        /* เพิ่มเงาให้ตัวหนังสืออ่านง่ายบนพื้นเขียวเข้ม */
+        text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    }
+    /* ================================= */
+
+    /* 2. Main Header Bar (แถบบนสีขาว) */
+    .header {
+        height: var(--header-height);
+        background: #ffffff;
+        box-shadow: var(--shadow-soft);
+        z-index: 10;
+        padding-left: var(--sidebar-width); /* ขยับตามความกว้างใหม่ */
+        transition: all 0.3s ease;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%;
+    }
+
+    .header-content {
+        height: 100%;
+        padding: 0 30px;
+    }
+
+    .navbar { padding: 0; height: 100%; }
+
+    /* 3. Hamburger Menu */
+    .nav-control {
+        cursor: pointer;
+        position: absolute;
+        right: -25px; /* ขยับให้มาอยู่ตรงรอยต่อ */
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 12;
+        background: var(--accent-color); /* เพิ่มพื้นหลังสีเขียวสด */
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 10px rgba(46, 204, 113, 0.4);
+        transition: all 0.3s ease;
+    }
+    
+    .nav-control:hover {
+        transform: translateY(-50%) scale(1.1); /* ขยายเมื่อชี้ */
+    }
+
+    .hamburger .line {
+        width: 20px;
+        height: 2px;
+        background-color: white; /* เปลี่ยนเส้นเป็นสีขาว */
+        display: block;
+        margin: 5px auto;
+        border-radius: 3px;
+        transition: all 0.3s ease-in-out;
+    }
+
+
+    /* 4. Profile Section (ขวาบน) - ปรับให้ดูคลีนขึ้น */
+    .header-profile .nav-link {
+        padding: 0 10px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        border-radius: 30px; /* ทำเป็นแคปซูล */
+        transition: all 0.3s ease;
+    }
+
+    .header-profile .nav-link:hover {
+        background-color: #f8f9fa; /* พื้นหลังเทาอ่อนเมื่อชี้ */
+    }
+
+    .user-name-text {
+        font-size: 0.95rem;
+        color: #444;
+        font-weight: 600;
+    }
+
+    .profile-icon-wrapper {
+        width: 45px;
+        height: 45px;
+        /* ใช้ Gradient เขียวสดใส */
+        background: linear-gradient(135deg, #2ecc71, #27ae60);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* เด้งดึ๋ง */
+        box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+        border: 2px solid #fff;
+    }
+
+    .profile-icon-wrapper i {
+        font-size: 1.2rem;
+        color: white;
+    }
+
+    /* Hover Profile Effect */
+    .header-profile:hover .profile-icon-wrapper {
+        transform: scale(1.1) rotate(5deg); /* ขยายและหมุนนิดหน่อย */
+        box-shadow: 0 8px 25px rgba(46, 204, 113, 0.5);
+    }
+
+
+    /* Dropdown Styling (ทำให้นุ่มนวลขึ้น) */
+    .dropdown-menu {
+        border: none;
+        border-radius: 16px; /* มุมโค้งมนมากขึ้น */
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1); /* เงาฟุ้งๆ */
+        padding: 15px 0;
+        margin-top: 15px;
+        animation: slideDown 0.3s ease forwards;
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    
+    @keyframes slideDown {
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .dropdown-item {
+        padding: 12px 25px;
+        font-size: 0.95rem;
+        color: #666;
+        transition: all 0.2s;
+        display: flex;
+        align-items: center;
+    }
+
+    .dropdown-item i {
+        margin-right: 15px;
+        font-size: 1.1rem;
+        width: 20px;
+        text-align: center;
+    }
+
+    .dropdown-item:hover {
+        background-color: #f0fdf4; /* สีพื้นหลังเขียวอ่อนมากๆ */
+        color: var(--accent-color);
+        padding-left: 30px; /* ขยับขวาเมื่อชี้ */
+    }
+    
+    .dropdown-divider { border-top-color: #f0f0f0; }
+
+    /* ================= RESPONSIVE ================= */
+    @media (max-width: 768px) {
+        :root { --sidebar-width: 5rem; } /* ย่อ Sidebar */
+        
+        .nav-header { padding: 0; justify-content: center; }
+        .brand-title { display: none; } /* ซ่อนชื่อในมือถือ */
+        .brand-logo { justify-content: center; padding: 0; }
+        .logo-abbr { max-width: 38px; }
+
+        .header { padding-left: var(--sidebar-width); }
+
+        .nav-control {
+            right: auto;
+            left: 6rem; /* ย้ายปุ่มเมนู */
+            background: transparent; /* เมนูมือถือเอาพื้นหลังออก */
+            box-shadow: none;
+            width: auto; height: auto;
+        }
+        .nav-control .hamburger .line { background-color: #143625; } /* เปลี่ยนเส้นเป็นสีเขียวเข้ม */
+
+        .user-name-text { display: none !important; }
+        .profile-icon-wrapper { width: 40px; height: 40px; }
+    }
+</style>
+
+<div class="nav-header">
+    <a href="index1.php" class="brand-logo">
+        <img class="logo-abbr" src="./images/test03.png" alt="Logo">
+        <span class="brand-title">สมุดบันทึกหมู่บ้านแม่ต่ำต้นโพธิ์</span>
+    </a>
+
+    <div class="nav-control">
+        <div class="hamburger">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+        </div>
+    </div>
+</div>
+
+<div class="header">
+    <div class="header-content">
+        <nav class="navbar navbar-expand">
+            <div class="collapse navbar-collapse justify-content-between">
+
+                <div class="header-left">
+                </div>
+
+                <ul class="navbar-nav header-right">
+                    <li class="nav-item dropdown header-profile">
+                        <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                            <span class="user-name-text mr-3">
+                                สวัสดี,
+                                <span class="font-weight-bold"><?php echo htmlspecialchars($_SESSION['fullname'] ?? $_SESSION['username']); ?></span>
+                            </span>
+
+                            <div class="profile-icon-wrapper">
+                                <i class="fa fa-user"></i>
+                            </div>
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a href="./app-profile.php" class="dropdown-item">
+                                <i class="fa fa-address-card text-success"></i>
+                                <span>ข้อมูลส่วนตัว</span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="./logout.php" class="dropdown-item">
+                                <i class="fa fa-sign-out-alt text-danger"></i>
+                                <span>ออกจากระบบ</span>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
